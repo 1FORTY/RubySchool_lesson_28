@@ -71,6 +71,10 @@ get '/details/:post_id' do
   # post_id - это значение мы берём из url, только вот хер знает от куда он появился в URL
   @row = @results[0]
 
+  # Выбираем комментарии для нашего поста
+
+  @comments = @db.execute 'select * from Comments where post_id = ? order by id', [post_id]
+
   erb :details
 end
 
