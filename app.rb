@@ -8,7 +8,7 @@ def init_db
   @db = SQLite3::Database.new 'leprosorium.db'
   @results_as_hash = true
 
-  
+
 end
 
 before do
