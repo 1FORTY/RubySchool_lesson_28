@@ -7,7 +7,7 @@ require 'sqlite3'
 def init_db
   # Инициализируем в переменную БД и добавляем хэши
   @db = SQLite3::Database.new 'leprosorium.db'
-  @results_as_hash = true
+  @db.results_as_hash = true
 
   return @db
 end
@@ -50,5 +50,5 @@ post '/new' do
   # Сохранение данных
   @db.execute 'insert into Posts (created_date, content) values (datetime(), ?)', [@content]
 
-  erb :index
+  redirect to '/'
 end
