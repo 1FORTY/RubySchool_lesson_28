@@ -79,5 +79,7 @@ post '/details/:post_id' do
 
   @content = params[:content]
 
-  erb "Always ok"
+  @db.execute 'insert into Comments (created_date, content, post_id) values (datetime(), ?, ?)', [@content, post_id]
+
+  redirect to('/details/' + post_id)
 end
