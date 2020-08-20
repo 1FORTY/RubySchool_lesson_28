@@ -10,16 +10,17 @@
 
   <h3>Post details:</h3>
 
-  <% @results.each do |post| %>
-    <p>
+  <%= @row['content'] %> <br>
+  <br>
+  Added at <%= @row['created_date'] %>
+  <h4>Comments:</h4>
 
-      <%= @row['content'] %> <br>
-      <br>
-       Added at <%= @row['created_date'] %> <br>
-      <hr>
+  <form action="/details/<%= @row['id'] %>" method="post">
+    <textarea class="form-control" name="content" rows="6" placeholder="Type comment text here"></textarea>
+    <br>
 
-    </p> <br>
-  <% end %>
+    <button type="submit" class="btn btn-primary">Add comment</button>
+  </form>
 
 </body>
 </html>

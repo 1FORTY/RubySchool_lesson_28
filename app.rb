@@ -55,12 +55,15 @@ end
 
 # Вывод информации о посте
 
+# Получаем переменную из URL'а
 get '/details/:post_id' do
   post_id = params[:post_id]
 
-  @results = @db.execute 'select * from Posts order by id = ?', [post_id]
+  # Получаем список постов, у нас только 1 пост
+  @results = @db.execute 'select * from Posts where id = ?', [post_id]
   # post_id - это значение мы берём из url, только вот хер знает от куда он появился в URL
   @row = @results[0]
 
   erb :details
 end
+
