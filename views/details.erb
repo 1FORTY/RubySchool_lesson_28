@@ -13,7 +13,15 @@
   <%= @row['content'] %> <br>
   <br>
   Added at <%= @row['created_date'] %>
-  <h4>Comments:</h4>
+  <h4>Comments:</h4> <br>
+
+  <% @comments.each do |comment| %>
+    <p style="font-size: 17px;">
+      <%= comment['content'] %> <br>
+      <span style="font-size: 12px; color: #999;">Added at <%= comment['created_date'] %></span>
+    <hr>
+    </p>
+  <% end %>
 
   <form action="/details/<%= @row['id'] %>" method="post">
     <textarea class="form-control" name="content" rows="6" placeholder="Type comment text here"></textarea>
