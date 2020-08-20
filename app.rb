@@ -52,3 +52,7 @@ post '/new' do
 
   redirect to '/'
 end
+
+get '/details/' do
+
+end
